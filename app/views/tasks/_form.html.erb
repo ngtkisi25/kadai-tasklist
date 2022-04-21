@@ -1,6 +1,15 @@
-<h1>タスク新規作成ページ</h1>
-
 <%= form_with(model: @task ) do |f| %>
+   <% if message.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
   
